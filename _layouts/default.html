@@ -43,6 +43,35 @@ layout: table_wrappers
   <div class="side-bar">
     <div class="site-header">
       <a href="{{ '/' | absolute_url }}" class="site-title lh-tight">{% include title.html %}</a>
+      <button class="btn js-toggle-dark-mode" style="margin-right: 8px">світло</button>
+      <script>
+          function setTheme(theme) {
+             if (theme === 'dark' || theme === 'default') {
+                  jtd.setTheme('dark');
+                  localStorage.setItem('theme', 'dark');
+                  toggleDarkMode.textContent = 'темно';
+              } else {
+                  jtd.setTheme('light');
+                  localStorage.setItem('theme', 'light');
+                  toggleDarkMode.textContent = 'світло';
+              }
+          };
+
+          const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
+          jtd.addEvent(toggleDarkMode, 'click', function() {
+              if (jtd.getTheme() === 'dark' || jtd.getTheme() === 'default') {
+                  setTheme('light');
+              } else {
+                  setTheme('dark');
+              }
+          });
+          console.log('script');
+          document.addEventListener("DOMContentLoaded", function() {
+              console.log('on load');
+              setTheme(localStorage.getItem('theme'));
+          });
+      </script> 
+
       <a href="#" id="menu-button" class="site-button">
         <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
       </a>

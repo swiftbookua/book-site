@@ -99,9 +99,17 @@ layout: table_wrappers
     </footer>
   </div>
   <div class="main" id="top">
-    <div>
-      <a href="https://www.volonter-ukraina.com"><img src="/assets/images/volonteer-banner.jpeg"/></a>
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <a href="https://www.volonter-ukraina.com" style="margin-right: 20px;">
+        <img src="/assets/images/volonteer-banner.jpeg"/>
+      </a>
+      <a href="{{ site.url }}/book/support">
+        <button class="btn js-toggle-dark-mode" style="margin-right: 8px;">
+          <span>Підтримати</span>
+        </button>
+      </a>
     </div>
+    
     <div id="main-header" class="main-header">
       
       {% if site.search_enabled != false %}
